@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Payment - Jev Engineering</title>
+<link rel="preload" href="assets/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%23F48CA8'/><rect x='12' y='10' width='8' height='12' fill='%23000'/></svg>">
+</head>
+<body>
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>jev-engineering</a>
+    <span class="fill"></span>
+    <div class="links"><a href="checkout.html">Change method</a></div>
+  </nav>
+</header>
+
+<main class="page ht" data-ht data-ink="#D6336C" data-step="8" data-blobs="4" data-seed="23">
+  <div class="wrap">
+    <div class="steps" aria-label="Progress"><a class="done" href="pricing.html">1 course</a><a class="done" href="checkout.html">2 method</a><span class="now">3 payment</span></div>
+
+    <div class="flow">
+      <div>
+        <!-- ================= CARD ================= -->
+        <section id="card" class="hide">
+          <h1 class="mega" style="font-size:clamp(44px,6.4vw,92px);margin-bottom:28px">Pay by card</h1>
+          <div class="win lift">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">card.stripe</span><span class="x"></span></div>
+            <div class="body" style="padding:26px">
+              <div class="field">
+                <label for="c-email">Email for course access</label>
+                <input id="c-email" type="email" autocomplete="email" placeholder="you@example.com">
+                <span class="err" id="c-err"></span>
+              </div>
+              <p style="font-size:13px;font-weight:500;margin:0 0 22px">Stripe opens with this email filled in. Use the same one to log in to the course.</p>
+              <a class="btn" id="c-go" href="#"><span>Pay $<span data-price></span> with Stripe</span></a>
+              <p id="c-off" class="warn hide">Card payments are not open yet. You can pay in USDT right now: <a href="pay.html?m=crypto">switch to crypto</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CRYPTO ================= -->
+        <section id="crypto" class="hide">
+          <h1 class="mega" style="font-size:clamp(44px,6.4vw,92px);margin-bottom:28px">Pay in USDT</h1>
+
+          <div id="x-form">
+            <div class="win lift">
+              <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">wallet.usdt</span><span class="x"></span></div>
+              <div class="nets" role="tablist" aria-label="Network" id="nets"></div>
+              <div class="addr">
+                <div class="qr" id="qr" aria-label="Wallet address QR code"></div>
+                <div style="min-width:0">
+                  <div style="font-size:13px;font-weight:700">Send exactly</div>
+                  <div class="amt"><span data-price></span> USDT</div>
+                  <div style="font-size:13px;font-weight:700;margin-top:16px">To this <span id="chain">Ethereum</span> address</div>
+                  <div class="copyrow"><code id="addr"></code><button type="button" id="cp">Copy</button></div>
+                  <p class="warn" id="warn">Only USDT, only on <b id="chain2">Ethereum</b>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="win" style="margin-top:28px">
+              <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">confirm.txt</span><span class="x"></span></div>
+              <form class="body" style="padding:26px" id="xf" novalidate>
+                <p style="margin:0 0 20px;font-weight:600;font-size:14px">After sending, paste the transaction hash so the payment can be matched to you.</p>
+                <div class="field"><label for="x-email">Email for course access</label><input id="x-email" type="email" autocomplete="email" placeholder="you@example.com"><span class="err" id="e-email"></span></div>
+                <div class="field"><label for="x-hash" id="hash-label">Transaction hash</label><input id="x-hash" type="text" spellcheck="false" autocomplete="off" placeholder="0x..."><span class="err" id="e-hash"></span></div>
+                <button class="btn" type="submit" id="x-send">Submit payment</button>
+              </form>
+            </div>
+          </div>
+
+          <div id="x-done" class="win lift hide">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">received.log</span><span class="x"></span></div>
+            <div class="body done-box" style="padding:30px">
+              <h2 class="mega" style="font-size:clamp(40px,5.6vw,80px)">Payment submitted</h2>
+              <p style="font-weight:600;max-width:52ch;margin:18px 0 10px">Access opens for <b id="d-email"></b> once the transaction confirms and is checked. You get a message when it's live, then log in with that email and a 6-digit code.</p>
+              <p style="font-size:13px;font-weight:500;margin:0 0 22px">Transaction <code id="d-hash" style="word-break:break-all"></code></p>
+              <a class="btn light" data-href="telegram" href="#">Questions? Telegram</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sticky">
+        <div class="win">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">order.txt</span><span class="x"></span></div>
+          <div class="body sum">
+            <div class="r"><span>Jev Engineering</span><span>$<span data-price></span></span></div>
+            <div class="r"><span>Method</span><span id="s-method">card</span></div>
+            <div class="r"><span>Access</span><span>lifetime</span></div>
+            <div class="r tot"><span>Total</span><span id="s-total">$<span data-price></span></span></div>
+          </div>
+        </div>
+        <div class="win grey" style="margin-top:20px">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">next.txt</span><span class="x"></span></div>
+          <ul class="mini" id="next"></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/qrcode.js"></script>
+<script>
+(function () {
+  var C = JEV;
+  var m = new URLSearchParams(location.search).get("m") === "crypto" ? "crypto" : "card";
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  document.getElementById(m).classList.remove("hide");
+  document.getElementById("s-method").textContent = m === "card" ? "card, Stripe" : "USDT";
+  if (m === "crypto") document.getElementById("s-total").textContent = C.price + " USDT";
+
+  var steps = m === "card"
+    ? [["Pay at Stripe", "Card checkout hosted by Stripe"], ["Access opens", "For the email you paid with"], ["Log in", "Email plus a 6-digit code"]]
+    : [["Send USDT", "Exact amount, right network"], ["Paste the hash", "So the payment matches your email"], ["Access opens", "Then log in with a 6-digit code"]];
+  document.getElementById("next").innerHTML = steps.map(function (s, i) {
+    return '<li><span>' + (i + 1) + '</span><div><b>' + s[0] + '</b><small>' + s[1] + '</small></div></li>';
+  }).join("");
+
+  /* ---------------- card ---------------- */
+  if (m === "card") {
+    var go = document.getElementById("c-go"), em = document.getElementById("c-email");
+    if (!C.stripeLink) { go.setAttribute("aria-disabled", "true"); document.getElementById("c-off").classList.remove("hide"); }
+    go.addEventListener("click", function (e) {
+      e.preventDefault();
+      var v = em.value.trim();
+      if (v && !emailRe.test(v)) { document.getElementById("c-err").textContent = "That email looks incomplete. Check it or leave it empty and enter it at Stripe."; em.focus(); return; }
+      var url = C.stripeLink + (v ? (C.stripeLink.indexOf("?") > -1 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(v) : "");
+      location.href = url;
+    });
+    em.addEventListener("input", function () { document.getElementById("c-err").textContent = ""; });
+    return;
+  }
+
+  /* ---------------- crypto ---------------- */
+  var nets = document.getElementById("nets"), cur = null;
+  C.wallets.forEach(function (w, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("role", "tab"); b.dataset.id = w.id;
+    b.innerHTML = w.label + "<small>" + (w.address ? w.chain : "unavailable") + "</small>";
+    if (!w.address) b.disabled = true;
+    b.addEventListener("click", function () { pick(w); });
+    nets.appendChild(b);
+  });
+
+  function drawQR(text) {
+    var box = document.getElementById("qr");
+    if (typeof qrcode !== "function") { box.classList.add("hide"); return; }
+    var q = qrcode(0, "M"); q.addData(text); q.make();
+    box.innerHTML = q.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  }
+  function pick(w) {
+    cur = w;
+    nets.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.id === w.id)); });
+    document.getElementById("addr").textContent = w.address;
+    document.getElementById("chain").textContent = w.chain;
+    var evm = w.address.indexOf("0x") === 0;
+    document.getElementById("warn").innerHTML = evm
+      ? "Only USDT. This address takes Ethereum, BNB Chain, Polygon and Arbitrum, so pick the network you actually send on above. That's where the hash gets checked."
+      : "Only USDT, only on <b>" + w.chain + "</b>. Other tokens or networks sent to this address cannot be recovered.";
+    document.getElementById("x-hash").placeholder = w.ph || "";
+    document.getElementById("hash-label").textContent = w.id === "sol" ? "Transaction signature" : "Transaction hash";
+    drawQR(w.address);
+  }
+  var first = C.wallets.filter(function (w) { return w.address; })[0];
+  if (first) pick(first);
+
+  document.getElementById("cp").addEventListener("click", function () { if (cur) jevCopy(cur.address, this); });
+
+  var form = document.getElementById("xf");
+  ["x-email", "x-hash"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () { document.getElementById(id === "x-email" ? "e-email" : "e-hash").textContent = ""; });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = document.getElementById("x-email").value.trim();
+    var hash = document.getElementById("x-hash").value.trim();
+    var ok = true;
+    if (!emailRe.test(email)) { document.getElementById("e-email").textContent = "Enter the email you want course access on."; ok = false; }
+    if (!cur || !cur.hash.test(hash)) { document.getElementById("e-hash").textContent = "That doesn't look like a valid transaction hash for " + (cur ? cur.chain : "this network") + ". Copy it from your wallet or the block explorer."; ok = false; }
+    if (!ok) return;
+
+    var btn = document.getElementById("x-send"); btn.setAttribute("aria-disabled", "true"); btn.textContent = "Submitting";
+    var row = { email: email.toLowerCase(), network: cur.id, tx_hash: hash, amount: C.price };
+
+    function done() {
+      document.getElementById("x-form").classList.add("hide");
+      document.getElementById("x-done").classList.remove("hide");
+      document.getElementById("d-email").textContent = email;
+      document.getElementById("d-hash").textContent = hash;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function fallback() {
+      if (C.contactEmail) {
+        location.href = "mailto:" + C.contactEmail + "?subject=" + encodeURIComponent("Jev Engineering USDT payment") +
+          "&body=" + encodeURIComponent("Email: " + email + "\nNetwork: " + cur.label + "\nTx: " + hash + "\nAmount: " + C.price + " USDT");
+      }
+      done();
+    }
+
+    if (C.supabaseUrl && C.supabaseAnonKey) {
+      fetch(C.supabaseUrl.replace(/\/$/, "") + "/rest/v1/pending_payments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: C.supabaseAnonKey, Authorization: "Bearer " + C.supabaseAnonKey, Prefer: "return=minimal" },
+        body: JSON.stringify(row)
+      }).then(function (r) {
+        if (r.ok || r.status === 409) done();
+        else throw new Error(r.status);
+      }).catch(function () {
+        btn.removeAttribute("aria-disabled"); btn.textContent = "Submit payment";
+        document.getElementById("e-hash").textContent = "Couldn't save the payment. Try again, or send the hash on Telegram.";
+      });
+    } else fallback();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Checkout - Jev Engineering</title>
+<link rel="preload" href="assets/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%23F48CA8'/><rect x='12' y='10' width='8' height='12' fill='%23000'/></svg>">
+</head>
+<body>
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>jev-engineering</a>
+    <span class="fill"></span>
+    <div class="links"><a href="pricing.html">Back to pricing</a></div>
+  </nav>
+</header>
+
+<main class="page ht" data-ht data-ink="#D6336C" data-step="8" data-blobs="4" data-seed="17">
+  <div class="wrap">
+    <div class="steps" aria-label="Progress"><a class="done" href="pricing.html">1 course</a><span class="now">2 method</span><span>3 payment</span></div>
+
+    <div class="flow wide">
+      <div>
+        <h1 class="mega" style="font-size:clamp(44px,6.4vw,92px);margin-bottom:28px">How do you<br>want to pay?</h1>
+        <div class="methods">
+          <a class="win lift method" href="pay.html?m=card">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">card.stripe</span><span class="x"></span></div>
+            <div class="body">
+              <div class="glyph" aria-hidden="true">
+                <svg viewBox="0 0 300 88" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+                  <rect x="22" y="14" width="104" height="64" fill="#000"/><rect x="36" y="30" width="22" height="16" fill="#F48CA8"/>
+                  <rect x="36" y="58" width="76" height="5" fill="#fff"/><rect x="146" y="14" width="104" height="64" fill="#F48CA8" stroke="#000" stroke-width="2"/>
+                  <rect x="160" y="30" width="22" height="16" fill="#000"/><rect x="160" y="58" width="60" height="5" fill="#000"/>
+                </svg>
+              </div>
+              <div class="big">Card</div>
+              <p>Visa, Mastercard and other cards through Stripe. Access is opened for the email you enter at Stripe.</p>
+              <div class="go"><span>Continue with card</span><kbd>1</kbd></div>
+            </div>
+          </a>
+          <a class="win lift method" href="pay.html?m=crypto">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">crypto.usdt</span><span class="x"></span></div>
+            <div class="body">
+              <div class="glyph" aria-hidden="true" id="coin"></div>
+              <div class="big">Crypto</div>
+              <p>USDT on <span id="netlist">the listed networks</span>. You send from your wallet, then paste the transaction hash.</p>
+              <div class="go"><span>Continue with USDT</span><kbd>2</kbd></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <aside class="sticky">
+        <div class="win">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">order.txt</span><span class="x"></span></div>
+          <div class="body sum">
+            <div class="r"><span>Jev Engineering</span><span>$<span data-price></span></span></div>
+            <div class="r"><span>Access</span><span>lifetime</span></div>
+            <div class="r"><span>Inside</span><span>10 steps, 5 patterns</span></div>
+            <div class="r tot"><span>Total</span><span>$<span data-price></span></span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  var nets = JEV.wallets.filter(function (w) { return w.address; }).map(function (w) { return w.chain; });
+  if (nets.length) document.getElementById("netlist").textContent = nets.length > 1 ? nets.slice(0, -1).join(", ") + " or " + nets[nets.length - 1] : nets[0];
+
+  /* halftone coin glyph */
+  var g = document.getElementById("coin"), s = "";
+  for (var y = 6; y < 88; y += 7) for (var x = 6; x < 300; x += 7) {
+    var d = Math.hypot(x - 150, y - 44) / 40, r = d < 1 ? 3.1 * (1 - d * 0.55) : (d < 1.25 ? 0.9 : 0);
+    if (r > 0.4) s += '<circle cx="' + x + '" cy="' + y + '" r="' + r.toFixed(2) + '"/>';
+  }
+  g.innerHTML = '<svg viewBox="0 0 300 88" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><g fill="#000">' + s + '</g><rect x="112" y="31" width="76" height="28" fill="#000"/><text x="150" y="52" text-anchor="middle" font-family="Archivo Black,Arial Black" font-size="19" fill="#F48CA8">USDT</text></svg>';
+
+  document.addEventListener("keydown", function (e) {
+    if (e.target.closest("input,textarea")) return;
+    if (e.key === "1") location.href = "pay.html?m=card";
+    if (e.key === "2") location.href = "pay.html?m=crypto";
+  });
+})();
+</script>
+</body>
+</html>

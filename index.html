@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jev Engineering - the decision layer for AI agents</title>
+<meta name="description" content="Ten steps and five production patterns for putting Jev between your LLM and your code. Route, score, approve and escalate for a fraction of a frontier model call.">
+<meta property="og:title" content="Jev Engineering">
+<meta property="og:description" content="Stop paying a frontier model to make yes-or-no decisions.">
+<link rel="preload" href="assets/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jbm-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%23F48CA8'/><rect x='12' y='10' width='8' height='12' fill='%23000'/></svg>">
+</head>
+<body>
+
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>jev-engineering</a>
+    <span class="fill"></span>
+    <div class="links">
+      <a href="#gate">The gate</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="cta" href="pricing.html">Get the course</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero ht" data-ht data-calm="0,0.3,0.48,0.9" data-follow data-ink="#D6336C" data-step="8" data-blobs="6" data-seed="11">
+  <div class="wrap grid">
+    <h1 class="mega hero-title"><span>Jev</span><span>Engineering</span></h1>
+    <div>
+      <p class="sub">The decision layer your agents are missing</p>
+      <p class="lede">Stop paying a frontier model to make yes-or-no decisions. Ten steps and five production patterns for putting Jev between your LLM and your code, so routing, scoring, approving and escalating cost fractions of a cent and come back with real probabilities.</p>
+      <div class="actions">
+        <a class="btn" href="pricing.html">Get the course</a>
+        <a class="btn light" href="#gate">Try the gate</a>
+      </div>
+    </div>
+
+    <div class="stack" aria-label="Example Jev request and response">
+      <div class="win grey w1">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">state.json</span><span class="x"></span></div>
+<pre class="code">{
+  <span class="s">"files_touched"</span>: [<span class="s">"api/billing.py"</span>],
+  <span class="s">"outside_plan"</span>: [],
+  <span class="s">"tests"</span>: <span class="s">"passed"</span>,
+  <span class="s">"migrations"</span>: <span class="k">false</span>
+}</pre>
+      </div>
+      <div class="win w2">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">gate.py</span><span class="x"></span></div>
+<pre class="code"><span class="k">with</span> TypeSafeClient(model=<span class="s">"jev-1.13.0"</span>) <span class="k">as</span> client:
+    r = client.system_one(
+        state=snapshot(diff, plan, exit),
+        questions={<span class="s">"verdict"</span>: Choice(...),
+                   <span class="s">"blast_radius"</span>: Score(...),
+                   <span class="s">"needs_human"</span>: Noul(...)})</pre>
+      </div>
+      <div class="win lift w3">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t" id="hr-title">response  212 ms</span><span class="x"></span></div>
+        <div class="dist" id="hero-dist">
+          <div class="row" data-k="ship"><span>ship</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="row" data-k="return"><span>return</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="row" data-k="escalate"><span>escalate</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="meta"><span id="hr-conf">confidence 0.00</span><span id="hr-read" class="tag">reading</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="run">
+    <span><b>$0.042</b> per million input tokens</span><span>output is <b>free</b></span><span><b>70-500 ms</b> per call</span><span><b>32,000</b> token context</span><span>up to <b>255</b> options per Choice</span><span><b>10,000</b> decisions for <b>$0.42</b></span><span>Choice, Score, Noul</span>
+    <span><b>$0.042</b> per million input tokens</span><span>output is <b>free</b></span><span><b>70-500 ms</b> per call</span><span><b>32,000</b> token context</span><span>up to <b>255</b> options per Choice</span><span><b>10,000</b> decisions for <b>$0.42</b></span><span>Choice, Score, Noul</span>
+  </div>
+</div>
+
+<section class="sec dots">
+  <div class="wrap">
+    <h2 class="h2">Three layers. Only one of them writes.</h2>
+    <p class="intro">Most agent bills are frontier models answering questions that never needed a sentence. Which worker next. Is this safe to run. Is the goal met. Jev takes those, and only those.</p>
+    <div class="split">
+      <div class="win">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">generation.llm</span><span class="x"></span></div>
+        <div class="body"><div class="who">Frontier LLM</div><p>Creates things. Research, prose, code, explanations. Expensive per call, and worth it here.</p><ul><li>write</li><li>research</li><li>explain</li></ul></div>
+      </div>
+      <div class="win lift mid">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">decision.jev</span><span class="x"></span></div>
+        <div class="body"><div class="who">Jev</div><p>Picks, scores and answers yes or no. Returns a distribution, not a paragraph. Cannot invent an option you did not define.</p><ul><li>route</li><li>score</li><li>approve</li><li>escalate</li></ul></div>
+      </div>
+      <div class="win">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">execution.py</span><span class="x"></span></div>
+        <div class="body"><div class="who">Your code</div><p>Calls the tool, holds the limits, owns every threshold. The part you review in a pull request.</p><ul><li>thresholds</li><li>limits</li><li>tools</li></ul></div>
+      </div>
+    </div>
+    <p class="rule">If the operation creates text, it stays with the LLM. If it picks an option, scores a value or answers yes or no, it goes to Jev.</p>
+  </div>
+</section>
+
+<section class="sec" id="gate">
+  <div class="wrap">
+    <h2 class="h2">A gate you can poke</h2>
+    <p class="intro">This is the merge gate from the course, running in your browser with no API call. Move the numbers and watch which line of your code makes the decision. The model never gets a vote on whether something irreversible passes.</p>
+
+    <div class="gate">
+      <div class="controls">
+        <div class="presets" role="group" aria-label="Scenarios">
+          <button type="button" data-preset="clean" aria-pressed="false">Clean change</button>
+          <button type="button" data-preset="coin" aria-pressed="true">Coin flip with a label</button>
+          <button type="button" data-preset="schema" aria-pressed="false">Schema migration</button>
+        </div>
+        <div class="sl"><label for="s-ship">p(ship) <output id="o-ship"></output></label><input type="range" id="s-ship" min="0" max="1" step="0.01"><small>The rest splits between return and escalate.</small></div>
+        <div class="sl"><label for="s-conf">verdict confidence <output id="o-conf"></output></label><input type="range" id="s-conf" min="0" max="1" step="0.01"><small>Not an accuracy percentage. Treating it as one ships bad gates.</small></div>
+        <div class="sl"><label for="s-rad">blast_radius <output id="o-rad"></output></label><input type="range" id="s-rad" min="0" max="2" step="0.05"><small>0 one file, 1 several files, 2 data or schema.</small></div>
+        <div class="sl"><label for="s-hum">needs_human <output id="o-hum"></output></label><input type="range" id="s-hum" min="0" max="1" step="0.01"><small>0.5 means it does not know.</small></div>
+      </div>
+      <div class="out">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">gate.py</span><span class="x"></span></div>
+<pre class="code" id="gcode"><span class="ln">v      = r.choices[<span class="s">"verdict"</span>]</span><span class="ln">radius = r.scores[<span class="s">"blast_radius"</span>].score</span><span class="ln">human  = r.nouls[<span class="s">"needs_human"</span>].p</span><span class="ln"> </span><span class="ln" data-l="1"><span class="k">if</span> radius &gt;= <span class="n">1.5</span> <span class="k">or</span> human &gt;= <span class="n">0.70</span>:</span><span class="ln" data-l="2">    decision = <span class="s">"escalate"</span>   <span class="c"># hard rule wins first</span></span><span class="ln" data-l="3"><span class="k">elif</span> v.choice == <span class="s">"ship"</span> <span class="k">and</span> v.confidence &gt;= <span class="n">0.88</span>:</span><span class="ln" data-l="4">    decision = <span class="s">"ship"</span>       <span class="c"># the confident path</span></span><span class="ln" data-l="5"><span class="k">else</span>:</span><span class="ln" data-l="6">    decision = <span class="s">"return"</span>     <span class="c"># the cheap failure</span></span></pre>
+        <div class="dist" id="gate-dist">
+          <div class="row" data-k="ship"><span>ship</span><span class="track"><span class="fillb"></span></span><span class="p"></span></div>
+          <div class="row" data-k="return"><span>return</span><span class="track"><span class="fillb"></span></span><span class="p"></span></div>
+          <div class="row" data-k="escalate"><span>escalate</span><span class="track"><span class="fillb"></span></span><span class="p"></span></div>
+        </div>
+        <div class="verdict" aria-live="polite"><div class="big" id="g-big">return</div><p id="g-why"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec black ht" data-ht data-calm="0,0,0.78,1" data-ink="#F48CA8" data-step="9" data-blobs="3" data-seed="4">
+  <div class="wrap">
+    <h2 class="h2">Same forks. Different bill.</h2>
+    <p class="intro">Every fork in your agent is a call. Slide to your volume and compare what the decisions cost on a frontier model against what they cost on Jev.</p>
+    <div class="calc">
+      <div class="knob">
+        <label for="s-vol" style="font-weight:700;font-size:13px">decisions per month</label>
+        <div class="num" id="o-vol">10,000</div>
+        <input type="range" id="s-vol" min="0" max="100" step="1" value="33" aria-describedby="o-vol">
+      </div>
+      <div class="bars">
+        <div><div class="lab"><span>frontier model, three cents a call</span><span class="v" id="c-llm">$300</span></div><div class="b"><i id="b-llm" style="width:100%"></i></div></div>
+        <div><div class="lab"><span>Jev, 1,000 input tokens a call</span><span class="v" id="c-jev">$0.42</span></div><div class="b jev"><i id="b-jev"></i></div></div>
+        <p style="margin:0;font-weight:700">Jev comes to <span id="c-ratio" style="color:var(--pink)">0.14 percent</span> of the frontier bill for the same decisions.</p>
+      </div>
+    </div>
+    <p class="fine">Arithmetic, not a benchmark: 1,000 input tokens per decision at $0.042 per million, output free. TypeSafe's own evals claim 200x faster and 400x cheaper; those are vendor numbers from the favourable end, so treat them as a ceiling and measure on your own work.</p>
+  </div>
+</section>
+
+<section class="sec dots" id="syllabus">
+  <div class="wrap">
+    <h2 class="h2">Blank terminal to production gate</h2>
+    <p class="intro">Ten steps that build one working gate, five patterns that already shipped, and a field manual for when things go wrong. Every chapter ends with code that runs, not a snippet with three dots in the middle.</p>
+    <div class="mods" id="mods"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="h2">Shipped in the first 72 hours</h2>
+    <p class="intro">Real builds from the week Jev came out. Look at the last row: nine speedups, and none of them were generation.</p>
+    <div class="win lift">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">shipped.csv</span><span class="x"></span></div>
+      <div class="scroll">
+        <table class="tbl">
+          <thead><tr><th>who</th><th>what</th><th>cost and speed</th></tr></thead>
+          <tbody>
+            <tr><td>Browser Use</td><td>Browser agent that finds flights, picking from the controls actually on the page</td><td class="num">7 s, $0.0039</td></tr>
+            <tr><td>Hassan</td><td>Classified 1,018 AI research papers</td><td class="num">$0.08 total, 256 ms median</td></tr>
+            <tr><td>Riley Brown</td><td>Classified 500 emails</td><td class="num">seconds, 3.5 cents</td></tr>
+            <tr><td>Alex Volkov</td><td>Claude plugin scoring tool-call relevance</td><td class="num">~1M tokens to 86K, 1 s</td></tr>
+            <tr><td>@robj3d3</td><td>Feed filter, 8 questions per post over 3 days of posts</td><td class="num">~2 s, $0.007</td></tr>
+            <tr class="star"><td>@irabukht</td><td>SEO and GEO audit pipeline at an agency</td><td class="num">~$250 per audit, down about 90 percent</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pink">
+  <div class="wrap">
+    <h2 class="h2">What it can do, and what it can't</h2>
+    <p class="intro">The course is honest about the edges, because the edges are where gates break.</p>
+    <div class="contract">
+      <div class="win can">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">it_can.txt</span><span class="x"></span></div>
+        <ul>
+          <li>Pick one of up to 255 options you define</li>
+          <li>Score a state on a scale you define, fractions included</li>
+          <li>Answer yes or no as a probability</li>
+          <li>Run a whole battery of questions in one call, one latency</li>
+          <li>Route a request to the cheapest model likely to finish it</li>
+          <li>Classify an agent's action before it runs</li>
+        </ul>
+      </div>
+      <div class="win cannot">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">it_cannot.txt</span><span class="x"></span></div>
+        <ul>
+          <li>Write text, code, or an explanation of itself</li>
+          <li>Chain one judgment onto another inside a single call</li>
+          <li>See anything you left out of the state</li>
+          <li>Prove a file was written or a message was sent</li>
+          <li>Do arithmetic, counting or date comparison reliably</li>
+          <li>Beat an if statement that already works</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">TypeSafe says Jev cannot hallucinate. It cannot break your schema. <b>It can still choose the wrong valid option, with confidence.</b> The course is about catching that before it merges.</p>
+  </div>
+</section>
+
+<section class="sec dots">
+  <div class="wrap">
+    <h2 class="h2">Before you buy</h2>
+    <div class="faq">
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">api_access.md</span><span class="x"></span></div><div class="body"><h3>Do I need Jev access?</h3><p>Jev is still in early access, so join the TypeSafe waitlist the day you start. The first module is about finding decisions and designing state, which you can do before your key arrives.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">requirements.md</span><span class="x"></span></div><div class="body"><h3>What do I need to know?</h3><p>Basic Python. The code targets Python 3.12 and up, and the examples plug into LangChain where it helps.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">access.md</span><span class="x"></span></div><div class="body"><h3>How do I get in after paying?</h3><p>Access is opened for the email you paid with. You log in with that email and a 6-digit code. Access is lifetime.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">payment.md</span><span class="x"></span></div><div class="body"><h3>Card or crypto?</h3><p>Both. Pay by card through Stripe, or in USDT on the networks listed at checkout.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final ht" data-ht data-calm="0,0.6,0.42,1" data-follow data-ink="#D6336C" data-step="8" data-blobs="5" data-seed="29">
+  <div class="wrap">
+    <h2 class="mega"><span>Stop paying</span><span>for yes</span><span>or no</span></h2>
+    <p>Lifetime access to all ten steps, the working gate, and the five production patterns: router, guardrail, reranker, classifier and relevance filter.</p>
+    <a class="btn" href="pricing.html">Get the course</a>
+  </div>
+</section>
+
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/syllabus.js"></script>
+<script>
+(function () {
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ----- syllabus ----- */
+  var box = document.getElementById("mods");
+  JEV_SYLLABUS.forEach(function (m, i) {
+    var d = document.createElement("details");
+    d.className = "mod"; if (i === 0) d.open = true;
+    d.innerHTML = '<summary><span class="no">' + (i + 1) + '</span><span class="nm">' + m.title + '<small>' + m.sub + '</small></span><span class="tg" aria-hidden="true"></span></summary><ol>' +
+      m.lessons.map(function (l) { return '<li><span>' + l.n + '</span><div><b>' + l.t + '</b><p>' + l.d + '</p></div></li>'; }).join("") + "</ol>";
+    box.appendChild(d);
+  });
+
+  /* ----- distribution widget ----- */
+  function paint(el, p) {
+    var best = Object.keys(p).reduce(function (a, b) { return p[a] >= p[b] ? a : b; });
+    el.querySelectorAll(".row").forEach(function (r) {
+      var k = r.dataset.k;
+      r.querySelector(".fillb").style.width = (p[k] * 100).toFixed(1) + "%";
+      r.querySelector(".p").textContent = p[k].toFixed(2);
+      r.classList.toggle("win-row", k === best);
+    });
+    return best;
+  }
+
+  /* ----- hero response cycling ----- */
+  var heroCases = [
+    { p: { ship: 0.52, "return": 0.46, escalate: 0.02 }, c: 0.18, ms: 212, read: "coin flip with a label" },
+    { p: { ship: 0.94, "return": 0.05, escalate: 0.01 }, c: 0.91, ms: 88, read: "ship it" },
+    { p: { ship: 0.08, "return": 0.21, escalate: 0.71 }, c: 0.83, ms: 143, read: "a person reads this" }
+  ];
+  var hd = document.getElementById("hero-dist"), hi = 0;
+  function hero() {
+    var c = heroCases[hi % heroCases.length];
+    paint(hd, c.p);
+    document.getElementById("hr-conf").textContent = "confidence " + c.c.toFixed(2);
+    document.getElementById("hr-read").textContent = c.read;
+    document.getElementById("hr-read").className = "tag" + (hi % 3 === 0 ? " hot" : "");
+    document.getElementById("hr-title").textContent = "response  " + c.ms + " ms";
+    hi++;
+  }
+  setTimeout(hero, 350);
+  if (!reduce) setInterval(hero, 4200);
+
+  /* ----- gate simulator ----- */
+  var S = { ship: 0.52, conf: 0.18, rad: 0.4, hum: 0.31 };
+  var presets = {
+    clean:  { ship: 0.94, conf: 0.91, rad: 0.1, hum: 0.12 },
+    coin:   { ship: 0.52, conf: 0.18, rad: 0.4, hum: 0.31 },
+    schema: { ship: 0.61, conf: 0.9,  rad: 1.8, hum: 0.44 }
+  };
+  var ids = { ship: "s-ship", conf: "s-conf", rad: "s-rad", hum: "s-hum" };
+  var outs = { ship: "o-ship", conf: "o-conf", rad: "o-rad", hum: "o-hum" };
+  var gd = document.getElementById("gate-dist");
+  var lines = {}; document.querySelectorAll("#gcode .ln[data-l]").forEach(function (l) { lines[l.dataset.l] = l; });
+
+  function run() {
+    Object.keys(ids).forEach(function (k) {
+      document.getElementById(ids[k]).value = S[k];
+      document.getElementById(outs[k]).textContent = (+S[k]).toFixed(2);
+    });
+    var rest = 1 - S.ship;
+    var p = { ship: S.ship, "return": rest * 0.85, escalate: rest * 0.15 };
+    var choice = paint(gd, p);
+    Object.values(lines).forEach(function (l) { l.className = "ln"; });
+    var dec, why;
+    lines[1].classList.add("on");
+    if (S.rad >= 1.5 || S.hum >= 0.7) {
+      lines[2].classList.add("hit"); dec = "escalate";
+      why = S.rad >= 1.5 ? "Blast radius " + S.rad.toFixed(2) + " hits the hard rule. Confidence never got checked." : "needs_human is " + S.hum.toFixed(2) + ". A person reads this before it merges.";
+    } else {
+      lines[3].classList.add("on");
+      if (choice === "ship" && S.conf >= 0.88) { lines[4].classList.add("hit"); dec = "ship"; why = "Verdict is ship and confidence " + S.conf.toFixed(2) + " clears 0.88. Automated."; }
+      else {
+        lines[5].classList.add("on"); lines[6].classList.add("hit"); dec = "return";
+        why = choice !== "ship" ? "The top option is " + choice + ", not ship. Back to the agent, the cheap failure." : "Ship won, but confidence " + S.conf.toFixed(2) + " is under 0.88. A label is not a decision.";
+      }
+    }
+    var big = document.getElementById("g-big"); big.textContent = dec; big.className = "big " + dec;
+    document.getElementById("g-why").textContent = why;
+  }
+  Object.keys(ids).forEach(function (k) {
+    document.getElementById(ids[k]).addEventListener("input", function (e) {
+      S[k] = +e.target.value;
+      document.querySelectorAll("[data-preset]").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+      run();
+    });
+  });
+  document.querySelectorAll("[data-preset]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      S = Object.assign({}, presets[b.dataset.preset]);
+      document.querySelectorAll("[data-preset]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      run();
+    });
+  });
+  run();
+
+  /* ----- cost calculator (log scale 1k to 1M) ----- */
+  var vol = document.getElementById("s-vol");
+  function money(v) { return v >= 100 ? "$" + Math.round(v).toLocaleString("en-US") : "$" + v.toFixed(v < 0.1 ? 3 : 2); }
+  function calc() {
+    var n = Math.round(Math.pow(10, 3 + vol.value / 100 * 3) / 1000) * 1000;
+    var llm = n * 0.03, jev = n * 1000 * 0.042 / 1e6;
+    document.getElementById("o-vol").textContent = n.toLocaleString("en-US");
+    document.getElementById("c-llm").textContent = money(llm);
+    document.getElementById("c-jev").textContent = money(jev);
+    document.getElementById("b-jev").style.width = Math.max(0.4, jev / llm * 100) + "%";
+    document.getElementById("c-ratio").textContent = (jev / llm * 100).toFixed(2) + " percent";
+  }
+  vol.addEventListener("input", calc); calc();
+})();
+</script>
+</body>
+</html>

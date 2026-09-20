@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pricing - Jev Engineering</title>
+<link rel="preload" href="assets/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%23F48CA8'/><rect x='12' y='10' width='8' height='12' fill='%23000'/></svg>">
+</head>
+<body>
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>jev-engineering</a>
+    <span class="fill"></span>
+    <div class="links"><a href="index.html#syllabus">Syllabus</a><a class="cta" href="checkout.html">Pay $<span data-price></span></a></div>
+  </nav>
+</header>
+
+<main class="page ht" data-ht data-ink="#D6336C" data-step="8" data-blobs="4" data-seed="3">
+  <div class="wrap">
+    <div class="steps" aria-label="Progress"><span class="now">1 course</span><span>2 method</span><span>3 payment</span></div>
+
+    <div class="flow">
+      <div class="win lift">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">jev-engineering.pkg</span><span class="x"></span></div>
+        <div class="body" style="padding:28px">
+          <h1 class="mega" style="font-size:clamp(30px,5.4vw,76px)">Jev Engineering</h1>
+          <p style="font-weight:600;max-width:52ch;margin:14px 0 26px">The full course on putting a decision layer between your LLM and your code. One payment, yours for good.</p>
+          <div class="price"><sup>$</sup><span data-price></span></div>
+          <div class="priceline"><span class="tag">one payment</span><span class="tag">lifetime access</span><span class="tag hot">card or USDT</span></div>
+          <ul class="chk">
+            <li>Ten steps that build one working gate, from the first split to production rollout</li>
+            <li>Runnable Python in every chapter, targeting Python 3.12 and up</li>
+            <li>The complete merge gate: state builder, questions, thresholds and rule ordering</li>
+            <li>The parallel battery and dynamic menu patterns for agents that run every turn</li>
+            <li>Shadow mode, calibration curves and versioning so you can automate safely</li>
+            <li>Five production patterns: router, action guardrail, reranker, classifier, relevance filter</li>
+            <li>A field manual: failure catalogue, where Jev does not belong, one-page cheat sheets</li>
+            <li>Honest numbers: vendor claims labelled as vendor claims, arithmetic you can check</li>
+          </ul>
+          <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+            <a class="btn" href="checkout.html"><span>Pay $<span data-price></span></span></a>
+            <span style="font-size:13px;font-weight:600">Next you choose card or crypto.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sticky">
+        <div class="win">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">inside.txt</span><span class="x"></span></div>
+          <ul class="mini" id="mini"></ul>
+        </div>
+        <div class="win grey" style="margin-top:20px">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">heads_up.md</span><span class="x"></span></div>
+          <div class="body" style="font-size:13px;font-weight:500">Jev is in early access from TypeSafe AI. Join their waitlist when you start so your key is ready by step three.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/syllabus.js"></script>
+<script>
+document.getElementById("mini").innerHTML = JEV_SYLLABUS.map(function (m, i) {
+  return '<li><span>' + (i + 1) + '</span><div><b>' + m.title + '</b><small>' + m.lessons.map(function (l) { return l.t; }).join(", ") + '</small></div></li>';
+}).join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Course - Jev Engineering</title>
+<meta name="robots" content="noindex">
+<link rel="preload" href="assets/fonts/archivo-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/course.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%23F48CA8'/><rect x='12' y='10' width='8' height='12' fill='%23000'/></svg>">
+</head>
+<body class="course">
+
+<!-- ======================= LOGIN ======================= -->
+<section class="screen auth ht" id="auth" data-ht data-follow data-ink="#D6336C" data-step="8" data-blobs="6" data-seed="41" data-calm="0,0.2,0.55,0.85">
+  <div class="in">
+    <div>
+      <h1 class="mega"><span>Jev</span><span>Engineering</span></h1>
+      <p class="lead">Log in with the email you paid with. We send a 6-digit code, no password to remember.</p>
+      <p id="preview-note" class="warn hide" style="max-width:44ch">Preview mode: any email works, and any six digits log you in.</p>
+    </div>
+
+    <div class="win lift term">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">login.sh</span><span class="x"></span></div>
+
+      <form class="body" id="f-email" novalidate>
+        <p class="line"><b>$</b> jev login</p>
+        <div class="field"><label for="email">Email you paid with</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="row2"><button class="btn" id="send" type="submit">Send code</button><a class="linkbtn" href="pricing.html">No access yet? Get the course</a></div>
+        <span class="stat" id="st-email" aria-live="polite"></span>
+      </form>
+
+      <form class="body hide" id="f-code" novalidate>
+        <p class="line"><b>$</b> code sent to <span id="sent-to"></span></p>
+        <div class="otp" role="group" aria-label="Six digit code"><input id="o1" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Digit 1"><input id="o2" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 2"><input id="o3" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 3"><input id="o4" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 4"><input id="o5" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 5"><input id="o6" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 6"></div>
+        <div class="row2"><button class="btn" type="submit">Log in</button><button type="button" class="linkbtn" id="resend">Send the code again</button><button type="button" class="linkbtn" id="back">Use a different email</button></div>
+        <span class="stat" id="st-code" aria-live="polite"></span>
+        <p class="hint">The code arrives within a minute. Check spam if it doesn't.</p>
+      </form>
+
+      <div class="body hide" id="nox">
+        <p class="line"><b>$</b> access check failed</p>
+        <p style="margin:0 0 18px;font-weight:600"><span id="no-email"></span> is logged in but doesn't have the course yet. If you just paid, access opens once the payment is checked. Otherwise get the course first.</p>
+        <div class="row2"><a class="btn" href="pricing.html">Get the course</a><button type="button" class="linkbtn" id="no-out">Log out</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= APP ======================= -->
+<div class="screen" id="app">
+  <header class="top">
+    <button class="menu" id="menu" aria-label="Chapters">Chapters</button>
+    <a class="brand" href="#"><span class="dots"><i></i><i></i><i></i></span>jev-engineering</a>
+    <div class="meter"><span class="track" aria-hidden="true"><span class="fillb" id="m-fill"></span></span><span id="m-txt">0 of 0 done</span></div>
+    <div class="who"><span id="who"></span><button type="button" id="out">Log out</button></div>
+  </header>
+
+  <div class="shell">
+    <nav class="side" aria-label="Chapters">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">course.tree</span><span class="x"></span></div>
+      <div class="tree" id="tree"></div>
+    </nav>
+
+    <main class="main" id="doc">
+      <header class="hero-ch ht" data-ht data-ink="#D6336C" data-step="8" data-blobs="4" data-seed="8" data-calm="0,0,0.62,1">
+        <div class="kick"><span class="tag" id="k-part"></span><span class="tag hot" id="k-n"></span><span class="tag" id="k-min" style="background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)"></span></div>
+        <h1 id="h-title"></h1>
+        <p class="sum" id="h-sum"></p>
+        <div class="build hide" id="h-build"><span>you build</span><span id="h-build-v"></span></div>
+      </header>
+      <div class="doc">
+        <article class="prose" id="prose"></article>
+        <aside class="toc" id="toc"></aside>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets/course.js"></script>
+</body>
+</html>
