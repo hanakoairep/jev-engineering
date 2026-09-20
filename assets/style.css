@@ -245,7 +245,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:20px;background:var(--hot)
 .flow.wide{grid-template-columns:minmax(0,1.7fr) minmax(0,.7fr)}
 @media (max-width:960px){.flow,.flow.wide{grid-template-columns:1fr}.sticky{position:static}}
 
-.price{font-family:var(--display);font-size:clamp(88px,11vw,160px);line-height:.85;letter-spacing:-.03em;display:flex;align-items:flex-start;gap:6px}
+.price{font-family:var(--display);font-size:clamp(54px,7vw,104px);line-height:.85;letter-spacing:-.03em;display:flex;align-items:flex-start;gap:6px}
 .price sup{font-size:.36em;margin-top:.2em}
 .priceline{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
 .chk{list-style:none;margin:0;padding:0}
@@ -266,11 +266,13 @@ input[type=range]::-moz-range-thumb{width:16px;height:20px;background:var(--hot)
 .method{display:flex;flex-direction:column;text-decoration:none;cursor:pointer;transition:transform .08s,box-shadow .08s}
 .method:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
 .method:hover .bar{background:var(--hot)}
+.method:hover .go{background:var(--ink);color:#fff}
+.method:hover .go kbd{border-color:#fff}
 .method .body{display:flex;flex-direction:column;gap:14px;min-height:300px}
 .method .big{font-family:var(--display);font-size:clamp(34px,4vw,54px);line-height:.9;text-transform:uppercase}
 .method p{margin:0;font-size:14px;font-weight:500}
-.method .go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);padding-top:14px;font-weight:800}
-.method .go kbd{border:2px solid var(--ink);padding:0 7px;font:inherit;font-size:12px}
+.method .go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--hot);color:var(--ink);padding:15px 16px;margin:6px -18px -18px;font-weight:800;font-size:15px;border-top:2px solid var(--ink)}
+.method .go kbd{border:2px solid currentColor;padding:1px 8px;font:inherit;font-size:12px;flex:none}
 .glyph{height:88px;border:2px solid var(--ink);background:var(--panel);position:relative;overflow:hidden}
 @media (max-width:760px){.methods{grid-template-columns:1fr}}
 
