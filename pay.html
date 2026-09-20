@@ -76,9 +76,9 @@
             <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">received.log</span><span class="x"></span></div>
             <div class="body done-box" style="padding:30px">
               <h2 class="mega" style="font-size:clamp(40px,5.6vw,80px)">Payment submitted</h2>
-              <p style="font-weight:600;max-width:52ch;margin:18px 0 10px">Access opens for <b id="d-email"></b> once the transaction confirms and is checked. You get a message when it's live, then log in with that email and a 6-digit code.</p>
+              <p style="font-weight:600;max-width:52ch;margin:18px 0 10px">Access opens for <b id="d-email"></b> once the transaction confirms and is checked. You get a message when it's live, then log in with that email at jev-engineering.site/course.html.</p>
               <p style="font-size:13px;font-weight:500;margin:0 0 22px">Transaction <code id="d-hash" style="word-break:break-all"></code></p>
-              <a class="btn light" data-href="telegram" href="#">Questions? Telegram</a>
+              <a class="btn light" data-href="telegram" href="#">Questions? Message me on Telegram</a>
             </div>
           </div>
         </section>
@@ -117,8 +117,8 @@
   if (m === "crypto") document.getElementById("s-total").textContent = C.price + " USDT";
 
   var steps = m === "card"
-    ? [["Pay at Stripe", "Card checkout hosted by Stripe"], ["Access opens", "For the email you paid with"], ["Log in", "Email plus a 6-digit code"]]
-    : [["Send USDT", "Exact amount, right network"], ["Paste the hash", "So the payment matches your email"], ["Access opens", "Then log in with a 6-digit code"]];
+    ? [["Pay at Stripe", "Card checkout hosted by Stripe"], ["Access opens", "For the email you paid with"], ["Log in", "Login link sent to that email"]]
+    : [["Send USDT", "Exact amount, right network"], ["Paste the hash", "So the payment matches your email"], ["Access opens", "Then log in at /course.html"]];
   document.getElementById("next").innerHTML = steps.map(function (s, i) {
     return '<li><span>' + (i + 1) + '</span><div><b>' + s[0] + '</b><small>' + s[1] + '</small></div></li>';
   }).join("");

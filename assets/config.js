@@ -22,7 +22,7 @@ window.JEV = {
   supabaseAnonKey: "sb_publishable_12oDhR_gAUaKoh5RdYSqiQ_AKIfY1xm",
   contactEmail: "",           // fallback inbox for crypto payment notices
 
-  telegram: "https://t.me/+75nMf005jRpjMDU1",
+  telegram: "https://t.me/tryrx",
   x: "https://x.com/hanakoxbt",
   agentLayers: "https://agent-layers.vercel.app",
 };
