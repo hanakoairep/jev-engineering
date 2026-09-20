@@ -18,8 +18,8 @@ window.JEV = {
 
   // Crypto buyers submit email + tx hash. With Supabase filled in, it lands in the
   // pending_payments table (see supabase.sql). Without it, it opens an email to contactEmail.
-  supabaseUrl: "",            // e.g. "https://abcd1234.supabase.co"
-  supabaseAnonKey: "",
+  supabaseUrl: "https://fbqwxtpcrzltetyjcfgn.supabase.co",            // e.g. "https://abcd1234.supabase.co"
+  supabaseAnonKey: "sb_publishable_12oDhR_gAUaKoh5RdYSqiQ_AKIfY1xm",
   contactEmail: "",           // fallback inbox for crypto payment notices
 
   telegram: "https://t.me/+75nMf005jRpjMDU1",

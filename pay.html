@@ -208,7 +208,8 @@
     if (C.supabaseUrl && C.supabaseAnonKey) {
       fetch(C.supabaseUrl.replace(/\/$/, "") + "/rest/v1/pending_payments", {
         method: "POST",
-        headers: { "Content-Type": "application/json", apikey: C.supabaseAnonKey, Authorization: "Bearer " + C.supabaseAnonKey, Prefer: "return=minimal" },
+        headers: Object.assign({ "Content-Type": "application/json", apikey: C.supabaseAnonKey, Prefer: "return=minimal" },
+          C.supabaseAnonKey.indexOf("sb_") === 0 ? {} : { Authorization: "Bearer " + C.supabaseAnonKey }),
         body: JSON.stringify(row)
       }).then(function (r) {
         if (r.ok || r.status === 409) done();

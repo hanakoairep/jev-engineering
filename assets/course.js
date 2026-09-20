@@ -20,7 +20,7 @@
     signOut: function () { return Promise.resolve(); }
   } : {
     session: function () { return sb.auth.getSession().then(function (r) { var s = r.data && r.data.session; return s ? { email: s.user.email } : null; }); },
-    sendCode: function (email) { return sb.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } }).then(function (r) { if (r.error) throw r.error; }); },
+    sendCode: function (email) { return sb.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true, emailRedirectTo: location.origin + location.pathname } }).then(function (r) { if (r.error) throw r.error; }); },
     verify: function (email, code) { return sb.auth.verifyOtp({ email: email, token: code, type: "email" }).then(function (r) { if (r.error) throw r.error; return { email: r.data.user.email }; }); },
     hasAccess: function () { return sb.rpc("has_access").then(function (r) { if (r.error) throw r.error; return !!r.data; }); },
     index: function () {

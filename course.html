@@ -17,7 +17,7 @@
   <div class="in">
     <div>
       <h1 class="mega"><span>Jev</span><span>Engineering</span></h1>
-      <p class="lead">Log in with the email you paid with. We send a 6-digit code, no password to remember.</p>
+      <p class="lead">Log in with the email you paid with. We send a login link or a 6-digit code, no password to remember.</p>
       <p id="preview-note" class="warn hide" style="max-width:44ch">Preview mode: any email works, and any six digits log you in.</p>
     </div>
 
@@ -32,11 +32,12 @@
       </form>
 
       <form class="body hide" id="f-code" novalidate>
-        <p class="line"><b>$</b> code sent to <span id="sent-to"></span></p>
+        <p class="line"><b>$</b> email sent to <span id="sent-to"></span></p>
+        <p style="margin:0 0 14px;font-size:13px;font-weight:600">Click the login link in the email, or type the 6-digit code if the email has one.</p>
         <div class="otp" role="group" aria-label="Six digit code"><input id="o1" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Digit 1"><input id="o2" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 2"><input id="o3" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 3"><input id="o4" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 4"><input id="o5" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 5"><input id="o6" inputmode="numeric" autocomplete="off" maxlength="6" aria-label="Digit 6"></div>
         <div class="row2"><button class="btn" type="submit">Log in</button><button type="button" class="linkbtn" id="resend">Send the code again</button><button type="button" class="linkbtn" id="back">Use a different email</button></div>
         <span class="stat" id="st-code" aria-live="polite"></span>
-        <p class="hint">The code arrives within a minute. Check spam if it doesn't.</p>
+        <p class="hint">The email arrives within a minute. Check spam if it doesn't.</p>
       </form>
 
       <div class="body hide" id="nox">
