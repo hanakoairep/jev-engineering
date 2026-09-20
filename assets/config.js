@@ -4,7 +4,7 @@ window.JEV = {
   currency: "USD",
 
   // Stripe Payment Link (Dashboard -> Payment Links -> copy URL)
-  stripeLink: "",             // e.g. "https://buy.stripe.com/xxxxxxxx"
+  stripeLink: "https://buy.stripe.com/00w4gz6KXb8u9WndGU7wA02",             // e.g. "https://buy.stripe.com/xxxxxxxx"
 
   // USDT wallets. Leave an address empty and that network is shown as unavailable.
   wallets: [
